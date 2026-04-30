@@ -1,0 +1,17 @@
+{
+  "default_model": "gemini-2.0-pro",
+  "fallback_model": "gemini-1.5-pro",
+  "temperature": 0.3,
+  "max_output_tokens": 4096,
+  "style": {
+    "tone": "clear, direct, neutral",
+    "formatting": "Markdown where applicable",
+    "code_blocks": true
+  },
+  "domains": {
+    "governance": true,
+    "solana": true,
+    "grants": true,
+    "education": true
+  }
+}
