@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GitDigital-Solana Grant Application",
+  "type": "object",
+  "required": [
+    "applicant",
+    "project",
+    "funding",
+    "milestones",
+    "impact",
+    "compliance"
+  ],
+  "properties": {
+    "applicant": {
+      "type": "object",
+      "required": ["name", "contact", "entity_type"],
+      "properties": {
+        "name": { "type": "string" },
+        "contact": {
+          "type": "object",
+          "required": ["email"],
+          "properties": {
+            "email": { "type": "string", "format": "email" },
+            "telegram": { "type": "string" },
+            "x_handle": { "type": "string" }
+          }
+        },
+        "entity_type": {
+          "type": "string",
+          "enum": ["individual", "team", "company", "dao", "other"]
+        }
+      }
+    },
+    "project": {
+      "type": "object",
+      "required": ["title", "summary", "category"],
+      "properties": {
+        "title": { "type": "string" },
+        "summary": { "type": "string" },
+        "category": {
+          "type": "string",
+          "enum": ["infrastructure", "governance", "education", "community", "research", "other"]
+        },
+        "links": {
+          "type": "array",
+          "items": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "funding": {
+      "type": "object",
+      "required": ["requested_amount", "currency"],
+      "properties": {
+        "requested_amount": { "type": "number", "minimum": 0 },
+        "currency": { "type": "string", "default": "USD" },
+        "breakdown": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["category", "amount"],
+            "properties": {
+              "category": { "type": "string" },
+              "amount": { "type": "number", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
+    "milestones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "description", "deliverables", "timeline"],
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "deliverables": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "timeline": { "type": "string" },
+          "payment_percentage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          }
+        }
+      }
+    },
+    "impact": {
+      "type": "object",
+      "required": ["problem", "solution", "beneficiaries"],
+      "properties": {
+        "problem": { "type": "string" },
+        "solution": { "type": "string" },
+        "beneficiaries": { "type": "string" },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "description"],
+            "properties": {
+              "name": { "type": "string" },
+              "description": { "type": "string" },
+              "target_value": { "type": "number" },
+              "unit": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "compliance": {
+      "type": "object",
+      "required": ["jurisdiction", "kyc_required"],
+      "properties": {
+        "jurisdiction": { "type": "string" },
+        "kyc_required": { "type": "boolean" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}
