@@ -1,6 +1,0 @@
-/workflows
-    create-grant-schema.yaml
-    analyze-governance-proposal.yaml
-    generate-dashboard-widget.yaml
-    verify-milestone.yaml
-    produce-education-module.yaml
