@@ -6,5 +6,10 @@ codeowner: "GitDigital Solana"
 author: "RickCreator87"
 guidelines:
   - Verify adherence to Zero-Knowledge (ZK) proofs, local-first architecture, and AltBn128 pre-compiles.
-  - Validate Rust modules in commands/ and zk-logic paths.
-  - Confirm security for on-chain state transitions without leaking private keys or witness data.
+README.md
+/system/solana-architect.md
+/system/governance-advisor.md
+/workflows/create-grant-schema.yaml
+/prompts/grant-evaluation.txt
+/schemas/grant-application.json
+/config/model.json
