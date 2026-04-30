@@ -1,0 +1,48 @@
+name: Create Grant Schema
+description: >
+  Multi-step workflow to design or update a grant JSON schema
+  aligned with GitDigital‑Solana governance and impact tracking.
+
+steps:
+  - id: gather_requirements
+    description: Collect requirements from governance docs and existing schemas.
+    inputs:
+      - governance_policies
+      - existing_schemas
+    outputs:
+      - requirement_summary
+
+  - id: propose_fields
+    description: Propose fields for the new or updated grant schema.
+    inputs:
+      - requirement_summary
+    outputs:
+      - field_list
+
+  - id: generate_schema
+    description: Generate a JSON Schema draft based on the field list.
+    inputs:
+      - field_list
+    outputs:
+      - draft_schema
+
+  - id: validate_schema
+    description: Validate the schema for consistency and future extensibility.
+    inputs:
+      - draft_schema
+    outputs:
+      - validated_schema
+      - validation_notes
+
+  - id: final_review
+    description: Prepare a human-review-ready version of the schema.
+    inputs:
+      - validated_schema
+      - validation_notes
+    outputs:
+      - schema_markdown_summary
+      - final_schema_json
+
+outputs:
+  - final_schema_json
+  - schema_markdown_summary
