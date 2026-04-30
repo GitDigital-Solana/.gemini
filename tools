@@ -1,0 +1,7 @@
+/tools
+    solana-rpc.json
+    github-actions.json
+    supabase.json
+    firestore.json
+    zapper.json
+    n8n.json
